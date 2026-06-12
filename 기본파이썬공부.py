@@ -75,13 +75,44 @@ student['이름']
 # for fruit in fruits: # 'for 임의데이터명 in 리스트명' 의 for문은 해당 리스트명을 가진 리스트의 요소를 임의데이터명에 하나씩 대입하여, pring(임의데이터명) 이 종속될 경우, 리스트의 마지막 요소까지 출력되도록 한다
 #     print(fruit)
 
+
 word = "python"
 
-for ad in word:
-    if(ad != 't'):
-        print(ad)
-    else:
-        print('')
+# for ad in word:
+#     if(ad != 't'):
+#         print(ad)
+#     else:
+#         print('')
 
 # 조건식을 작성할때는 반드시 결과값이 거짓이 나올 수 있게 만들어야 함, 그렇지 않을 경우 for문이 무한히 실행될 수 있음
 
+user={
+    "name" : '홍길동',
+    "age" : 25,
+    "skills" : ['python', 'git']
+}
+# 수정하는법
+# 1. 대괄호 사용 (가장 일반적)
+# print(user['name']) # 출력: 홍길동
+
+#2. .get()
+
+# print(user['name'],"은 나이가", user['age'],"먹었습니다.")
+
+mart = {
+    "apple": 1000,
+    "banana": 2000,
+    "orange": 1500
+}
+
+mart["apple"] = 5000
+
+print(mart.keys()) # 딕셔너리의 카데고리를 리스트 형태의 값으로 출력
+
+print(mart.values()) # 딕셔너리의 데이터를 리스트 형태의 값으로 출력
+
+print(mart.items()) # key와 value 를 쌍(튜플)으로 모아서 가져옴(가장 많이 씀), 데이터 하나라도 오염되면 전부 폐기해야함.
+
+for fruit, price in mart.items():
+    print(f"{fruit}의 가격은 {price}원입니다.")
+    # mart.items()의 튜플값이 각각 fruit, price에 대입되며, print 내에 쉼표와 따옴표를 통해 작성하는것에 비해 
