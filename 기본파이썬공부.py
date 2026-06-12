@@ -95,7 +95,8 @@ user={
 # 1. 대괄호 사용 (가장 일반적)
 # print(user['name']) # 출력: 홍길동
 
-#2. .get()
+#2. .get() 메서드 사용 (안전함)
+# print(user.get("age")) # 출력: 25
 
 # print(user['name'],"은 나이가", user['age'],"먹었습니다.")
 
@@ -107,12 +108,63 @@ mart = {
 
 mart["apple"] = 5000
 
-print(mart.keys()) # 딕셔너리의 카데고리를 리스트 형태의 값으로 출력
+# print(mart.keys()) # 딕셔너리의 카데고리(키)를 리스트 형태의 값으로 출력
 
-print(mart.values()) # 딕셔너리의 데이터를 리스트 형태의 값으로 출력
+# print(mart.values()) # 딕셔너리의 데이터를 리스트 형태의 값으로 출력
 
-print(mart.items()) # key와 value 를 쌍(튜플)으로 모아서 가져옴(가장 많이 씀), 데이터 하나라도 오염되면 전부 폐기해야함.
+# print(mart.items()) # key와 value 를 쌍(튜플)으로 모아서 가져옴(가장 많이 씀), 데이터가 절대 변경되지 않기 때문에, 데이터 하나라도 오염되면 전부 폐기해야함.
 
-for fruit, price in mart.items():
-    print(f"{fruit}의 가격은 {price}원입니다.")
-    # mart.items()의 튜플값이 각각 fruit, price에 대입되며, print 내에 쉼표와 따옴표를 통해 작성하는것에 비해 
+# for fruit, price in mart.items():
+#     print(f"{fruit}의 가격은 {price}원입니다.")
+
+#     # mart.items()의 튜플값이 각각 fruit, price에 대입되며, print 내에 쉼표와 따옴표를 통해 작성하는것에 비해 프롬프트 출력에 띄어쓰기도 발생하지 않으며 손이 덜감. 맨 앞에 f를 작성한 뒤, 전체 텍스트를 큰따옴표로 일괄작성하며, 그 사이에 삽입되는 변수는 중괄호를 이용하여 표기
+
+# for key in mart.keys():
+#     print(f"mart 딕셔너리의 key값은 {key}가 있습니다.")
+
+    # keys의 경우는 items과 다르게 하나의 카테고리 값을 리스트로 주기 때문에, 2개의 변수에 대응하지 못하는 것을 염두해야함
+
+
+mart2 = {'apple': 1000, 'banana': 2500}
+
+# print('apple' in mart2) # True 
+# print('grape' in mart2) # False
+
+my_tuple = (1, 2, 3)
+another_tuple = 10, 20, 30 # 소괄호 생략 가능
+# my_tuple[0] = 99 튜플은 절대 수정이 불가능
+
+my_list = [1, 2, 3]
+my_list[0] = 99 # [99, 2, 3] 으로 정상적으로 변경됨
+
+# 리스트[] : 데이터 변경 가능(Mutable). 수정, 추가, 삭제가 마음대로 가능.
+# 튜플() : 데이터 변경 불가능(Immutable). 한 번 생성되면 절대 바꿀 수 없음.
+
+numbers = (0, 1, 2, 3, 4, 5)
+print(numbers[1:4]) # (1, 2, 3) -> 인덱스 1부터 3까지 출력됨
+
+a = (1, 2)
+b = (3, 4)
+
+print(a + b) # (1, 2, 3, 4) -> 새로운 튜플 생성
+print(a * 3) # (1, 2, 1, 2, 1, 2) -> 기존 튜플을 3번 반복(복사)
+
+# 1. 패킹
+info = ('Tom', 20, 'Seoul')
+
+# 2. 언패킹 (튜플의 개수와 변수의 개수가 같아야함)
+name, age, city = info
+print(name) # Tom
+print(age) # 20
+print(city) # Seoul
+
+x = 10
+y = 20
+# 두 값을 서로 바꾸기 (튜플 언패킹 원리)
+x, y = y, x
+print(x) # 20
+print(y) # 10
+
+sample = (1, 2, 3, 2, 4, 2)
+print(sample.count(2))
+print(sample.index(3))
