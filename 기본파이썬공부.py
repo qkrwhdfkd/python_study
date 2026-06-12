@@ -168,3 +168,25 @@ print(y) # 10
 sample = (1, 2, 3, 2, 4, 2)
 print(sample.count(2))
 print(sample.index(3))
+
+fruits = ['사과', '바나나', '수박']
+
+for fruit in fruits:
+    print(fruit)
+
+for i in range(5): # 0을 시작으로 rang()에 들어간 숫자 전까지만 순서대로 출력됨
+    print(f"{i}번째 반복 중입니다.")
+
+total = 0
+
+for num in range(1, 11): # 1부터 10까지 (11 전까지)
+    total = total + num  # 기존 total에 새로운 num을 더함
+    # 가장 좋은 for문은 조건식을 for문 안에 넣는게 아닌, for문 전에 최대한 조건식을 정리한 뒤에 가장 간단한 조건만을 추려 for문에 넣고 돌리는것
+    
+print(f"1부터 10까지 더한 합은: {total}")
+
+
+
+for num in range(1, 11):
+    if num % 2 != 0:
+        print(num)
